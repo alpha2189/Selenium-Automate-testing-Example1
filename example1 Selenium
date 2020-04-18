@@ -1,0 +1,23 @@
+package testing1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Examples {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+				
+				//by identifying the xpath and the css selector
+		driver.get("https://login.salesforce.com/");  //goes in login page o Salesforce
+		driver.findElement(By.id("username")).sendKeys("hello"); //fills in the username block hello
+		driver.findElement(By.name("pw")).sendKeys("123456"); //fills in password 123456
+				
+		driver.findElement(By.xpath("//*[@id='Login']")).click();///by xpath login  //it logins and above it takes the error message
+		System.out.println(driver.findElement(By.cssSelector("div#error.loginError")).getText());	//prints out the error message
+                                                                                              //(wrong password or username) in our console
+    
